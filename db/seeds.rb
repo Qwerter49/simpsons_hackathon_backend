@@ -1,8 +1,10 @@
 QuoteJoin.destroy_all
 Character.destroy_all
 Quote.destroy_all
+User.destroy_all
 
-15.times do
+10.times do
+
     response = RestClient.get("https://thesimpsonsquoteapi.glitch.me/quotes?count=10")
 
     data = JSON.parse(response)
@@ -18,6 +20,17 @@ Quote.destroy_all
             QuoteJoin.create(character_id: new_character.id, quote_id: new_quote.id)
         end
     end
+end
+
+10.times do
+    name = Faker::Name.name
+    email = Faker::Internet.email
+    password = Faker::Name.unique.name
+    user = User.create(
+    name: name,
+    email: email,
+    password: password
+    )
 end
 
 
