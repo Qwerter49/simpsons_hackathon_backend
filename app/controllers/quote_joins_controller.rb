@@ -1,0 +1,2 @@
+class QuoteJoinsController < ApplicationController
+end
