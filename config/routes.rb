@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :quote_joins
+  resources :quotes
   resources :characters
   resources :favorite_characters
   resources :users
