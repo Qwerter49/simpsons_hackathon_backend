@@ -4,9 +4,10 @@ Quote.destroy_all
 User.destroy_all
 
 10.times do
+
     response = RestClient.get("https://thesimpsonsquoteapi.glitch.me/quotes?count=10")
 
-    data=JSON.parse(response)
+    data = JSON.parse(response)
     data.map do |result|
 
         new_character = Character.find_or_create_by(name: result["character"]) do |new_character|
