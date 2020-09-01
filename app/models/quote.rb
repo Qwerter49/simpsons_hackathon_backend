@@ -1,4 +1,4 @@
 class Quote < ApplicationRecord
-    belongs_to :quote_joins
-    belongs_to :characters, through: :quote_joins
+    has_one :quote_join
+    has_one :character, through: :quote_join
 end
