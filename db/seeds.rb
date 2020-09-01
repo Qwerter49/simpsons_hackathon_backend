@@ -6,14 +6,24 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Character.destroy_all
+Quotes.destroy_all
+counter = 1
 
-
-data = RestClient.get("https://thesimpsonsquoteapi.glitch.me/quotes?count=num")
+response = RestClient.get("https://thesimpsonsquoteapi.glitch.me/quotes?count=10")
 
 data=JSON.parse(response)
 
-data.each do |quote|
+quotes = data['results']
+
+search_array.each do |search|
+    base_url
+end
+
+
+charecter_quotes = quotes.map do |quotes|
+    Quotes.find_or_create_by(name: quote["quote"])
+
+
     byebug
     puts "hello"
     # Character.find_or_create_by(name: character ["character"])
